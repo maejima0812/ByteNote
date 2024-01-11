@@ -24,7 +24,7 @@
                 <p>メールアドレス: {{ $user->password }}</p>
             @endif
             
-            <a href="/">トップページへ</a>
+            <a href="/">ホームへ</a>
         </div> 
         </x-app-layout>
     </body>

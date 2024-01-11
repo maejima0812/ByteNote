@@ -65,6 +65,9 @@
             
             <div class="text-blue-500 underline inline-block mr-2">[<a href="{{ route('select') }}">back</a>]</div>
         </div>
+        <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">
+           <a href="/">ホームへ</a>
+        </div>
     </x-app-layou>
 </body>
 </html>
