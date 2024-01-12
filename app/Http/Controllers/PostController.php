@@ -14,10 +14,10 @@ class PostController extends Controller
     {
        
         $posts = $post->get();
-$topStores = Store::select('stores.id', 'stores.name', \DB::raw('AVG(posts.runk) as averageRunk'))
+$topStores = Store::select('stores.id', 'stores.name', \DB::raw('AVG(COALESCE(posts.runk, 0)) as averageRunk'))
     ->join('posts', 'stores.id', '=', 'posts.store_id')
     ->groupBy('stores.id', 'stores.name')
-    ->orderByDesc(\DB::raw('AVG(posts.runk)')) // AVG(posts.runk)を直接指定
+    ->orderByDesc(\DB::raw('AVG(COALESCE(posts.runk, 0))'))
     ->limit(5)
     ->get();
 
@@ -26,7 +26,6 @@ return view('posts.index', compact('posts', 'topStores'));
     public function post(Request $request)
 {
     $store_id = $request->input('store_id');
-    // 他の処理
     return view('posts.post', compact('store_id'));
 }
     public function comments($id,$name,$title,$body)
