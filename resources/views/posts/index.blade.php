@@ -129,7 +129,7 @@
                     <tr>
                         <td class="border border-black px-4 py-4 text-center">{{ $index + 1 }}</td>
                         <td class="border border-black px-4 py-4 text-center">{{ $topStore->name }}</td>
-                        <td class="border border-black px-4 py-4 text-center">{{ $topStore->averageRunk}}</td>
+                        <td class="border border-black px-4 py-4 text-center">{{ number_format($topStore->averagerunk, 2) }}</td>
                     </tr>
                 @endforeach
             </tbody>
