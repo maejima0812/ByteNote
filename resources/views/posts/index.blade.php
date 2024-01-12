@@ -113,36 +113,38 @@
             @if(isset($topStores))
             {{-- 上位5店舗の表示 --}}
             
-            <h2 class="text-xl font-bold mb-4 bg-yellow-200  p-2">▶口コミランキング</h2>
-            <div class="flex justify-center" >
-            <table class="table-auto w-3/5">
-                <thead>
-                    <tr>
-                        <th class="border border-black px-4 py-4 text-center">順位</th>
-                        <th class="border  border-black px-4 py-4 text-center">店舗名</th>
-                        <th class="border  border-black px-4 py-4 text-center">平均ランク</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($topStores as $index => $topStore)
-                        <tr>
-                            <td class="border  border-black px-4 py-4 text-center">{{ $index + 1 }}</td>
-                            <td class="border border-black px-4 py-4 text-center">{{ $topStore->name }}</td>
-                            <td class="border border-black px-4 py-4 text-center">{{ number_format($topStore->averageRunk, 2) }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <h2 class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶口コミランキング</h2>
 
-            @else
-                <p>ランキング情報がありません。</p>
-             @endif
-        </div>
-        </div>
-        <div class="border border-black mb-4 mt-4"></div>
-        <a href="{{ route('select') }}" class="font-semibold border border-black text-black px-5 py-3 rounded">口コミを投稿する</a>
-        <div  class="mt-4" ></div>
-    </div>
-    </body>
-    </x-app-layout>
+<div class="flex justify-center">
+    
+        <table class="table-auto w-3/5">
+            <thead>
+                <tr>
+                    <th class="border border-black px-4 py-4 text-center">順位</th>
+                    <th class="border border-black px-4 py-4 text-center">店舗名</th>
+                    <th class="border border-black px-4 py-4 text-center">平均ランク</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($topStores as $index => $topStore)
+                    <tr>
+                        <td class="border border-black px-4 py-4 text-center">{{ $index + 1 }}</td>
+                        <td class="border border-black px-4 py-4 text-center">{{ $topStore->name }}</td>
+                        <td class="border border-black px-4 py-4 text-center">{{ number_format($topStore->averageRunk, 2) }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>ランキング情報がありません。</p>
+    @endif
+</div>
+
+<div class="border border-black mb-4 mt-4"></div>
+<a href="{{ route('select') }}" class="font-semibold border border-black text-black px-5 py-3 rounded">口コミを投稿する</a>
+<div class="mt-4"></div>
+
+</div>
+</body>
+</x-app-layout>
 </html>
