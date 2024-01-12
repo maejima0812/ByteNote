@@ -20,7 +20,7 @@ class PostController extends Controller
         ->orderByDesc(\DB::raw('AVG(posts.runk)')) 
         ->limit(5)
         ->get();
-dd($topStores);
+
         return view('posts.index', compact('posts', 'topStores'));
     }
     public function post(Request $request)
