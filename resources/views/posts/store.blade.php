@@ -23,7 +23,6 @@
         @endif
     @endfor
 </p>
-  
     @if($posts->isEmpty())
         <p>まだ口コミはありません。</p>
     @else

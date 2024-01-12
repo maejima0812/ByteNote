@@ -24,7 +24,7 @@
                     @if($matchedStore)
                         <h1 class="text-3xl">{{ $searchedKey }}がヒットしました。</h1>
                         <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">
-                            <a href="{{ route('post', [ 'keyword' => $searchedKey]) }}">口コミを投稿する</a>
+                            <a href="{{ route('post', ['store_id' => $matchedStore->id, 'keyword' => $searchedKey]) }}">口コミを投稿する</a>
                         </div>
                         <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block">
                             <a href="/posts/store/{{$searchedKey}}">口コミを見る</a>

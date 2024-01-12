@@ -42,8 +42,8 @@
                         <h2>{{ $comment->name }}さん　{{ $comment->created_at }}</h2>
                         <p>{{ $comment->body }}</p>
                     </div>
-                            @endif
-                        @endforeach
+                    @endif
+                    @endforeach
                     @endif
                 </div>
                 <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">

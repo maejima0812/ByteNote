@@ -14,21 +14,23 @@ class PostController extends Controller
     {
        
         $posts = $post->get();
-        $topStores = Store::with('posts')
-        ->select('stores.id', 'stores.name', \DB::raw('AVG(posts.runk) as averageRunk'))
-        ->join('posts', 'stores.id', '=', 'posts.store_id')
-        ->groupBy('stores.id', 'stores.name')  
-        ->orderByDesc('averageRunk')
-        ->limit(5)
-        ->get();
+$topStores = Store::with('posts')
+    ->select('stores.id', 'stores.name', \DB::raw('AVG(posts.runk) as averageRunk'))
+    ->join('posts', 'stores.id', '=', 'posts.store_id')
+    ->groupBy('stores.id', 'stores.name')
+    ->orderByDesc('averageRunk') // 列名を指定
+    ->limit(5)
+    ->get();
 
 
         return view('posts.index', compact( 'posts', 'topStores'));
     }
-    public function post()
-    {       
-        return view('posts.post');
-    }
+    public function post(Request $request)
+{
+    $store_id = $request->input('store_id');
+    // 他の処理
+    return view('posts.post', compact('store_id'));
+}
     public function comments($id,$name,$title,$body)
     {       $post = Post::find($id);
         return view('posts.comments',['post'=>$post],compact( 'id','name','title','body'));
@@ -37,6 +39,7 @@ class PostController extends Controller
 
     public function show()
     {
+
         return view('posts.index');
     }    
     public function select()
@@ -84,29 +87,32 @@ class PostController extends Controller
    
     }
     public function store(Request $request)
-    {
-     
-        $rules = [
-            'post.title' => 'required|string|max:255',
-            'post.body' => 'required|string',
-            'post.name'=>'required|string',
-            'post.runk'=>'nullable|integer|min:1|max:5',
-        ];
+{
+    $rules = [
+        'post.title' => 'required|string|max:255',
+        'post.body' => 'required|string',
+        'post.name' => 'required|string',
+        'post.runk' => 'nullable|integer|min:1|max:5',
+    ];
 
-   
-        $request->validate($rules);
-        $store_id = session('store_id');
-        $post = new Post();
-        $post->name=$request->input('post.name');
-        $post->title = $request->input('post.title');
-        $post->body = $request->input('post.body');
-        $post->runk=$request->input('post.runk');
-        $post->store_id = session('store_id');
-        $post->save();
-        $averageRunk = Post::where('store_id', $store_id)->avg('runk');
+    $request->validate($rules);
 
-         return view('posts.post_end', compact('averageRunk')); 
-    }
+    $store_id = $request->input('store_id');
+
+
+    $post = new Post();
+    $post->name = $request->input('post.name');
+    $post->title = $request->input('post.title');
+    $post->body = $request->input('post.body');
+    $post->runk = $request->input('post.runk');
+    $post->store_id = $store_id; // $store_id を設定
+
+    $post->save();
+
+    $averageRunk = Post::where('store_id', $store_id)->avg('runk');
+
+    return view('posts.post_end', compact('averageRunk'));
+}
    
 
 public function postsByStore(Request $request, $storeName)

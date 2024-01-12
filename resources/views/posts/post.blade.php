@@ -12,8 +12,11 @@
         <div class="bg-white">
             <p class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶コメント・質問先の投稿</p>
             <title>投稿画面</title>
+            <p>店舗ID: {{ $store_id }}</p>
+
             <form action="{{ route('posts.store') }}"  method="POST">
                 @csrf
+                <input type="hidden" name="store_id" value="{{ $store_id }}">
               　    <p class="bold-text">店舗名: {{ session('keyword') }}</p>
                 
                 <div class="runk">
