@@ -62,9 +62,10 @@
                 {{ __('すでに登録済みの方') }}
             </a>
 
-            <x-primary-button class="ml-4">
-               <button type="submit">登録</button>
-            </x-primary-button>
+            <x-primary-button>
+    <button type="submit">登録</button>
+</x-primary-button>
+
             
         </div>
     </form>

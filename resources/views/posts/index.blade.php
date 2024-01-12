@@ -60,7 +60,7 @@
                         </tr>
                         <tr>
                             <td class="border border-black px-4 py-4 text-center">
-                                <a href="/posts/store/吉野屋" class="text-blue-500 underline inline-block mr-2">吉野家</a>
+                                <a href="/posts/store/吉野家" class="text-blue-500 underline inline-block mr-2">吉野家</a>
                             </td>
                             <td class="border border-black px-4 py-4 text-center">
                                 <a href="/posts/store/セブンイレブン" class="text-blue-500 underline inline-block mr-2">セブンイレブン</a>
