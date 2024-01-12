@@ -111,7 +111,6 @@
        <div class="border border-black mb-4 mt-5"></div>
         <div class='runk'>
             @if(isset($topStores))
-            {{-- 上位5店舗の表示 --}}
             
             <h2 class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶口コミランキング</h2>
 
