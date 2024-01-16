@@ -14,7 +14,7 @@
            <a href="{{ route('profile.edit') }}">プロフィールへ</a>
         </div>
          <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">
-           <a href="{{ route('mypage.record') }}">収入情報</a>
+           <a href="{{ route('record') }}">収入情報</a>
         </div>
 
         </div>

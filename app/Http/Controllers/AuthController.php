@@ -26,7 +26,7 @@ class AuthController extends Controller
         $user->password = bcrypt($request->input('password'));
         $user->save();
 
-        return view('auth.register');
+        return view('auth.login');
         
     
 

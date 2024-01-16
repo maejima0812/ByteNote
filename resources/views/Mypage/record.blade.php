@@ -99,7 +99,7 @@
     <p>選択された月の合計金額: ¥{{ $totalEarnings }}</p>
     <div class="border "></div>
     <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">
-        <a href="{{ route('mypage.form') }}">勤怠入力をする</a>
+        <a href="{{ route('form') }}">勤怠入力をする</a>
     </div>
 
     <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">

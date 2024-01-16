@@ -34,11 +34,6 @@ class PostController extends Controller
     }
 
 
-    public function show()
-    {
-
-        return view('posts.index');
-    }    
     public function select()
     {
         return view('posts.search');

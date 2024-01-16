@@ -9,25 +9,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::controller(PostController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'index')->name('index');  
-    
-    Route::get('/posts/{post}', 'show')->name('show');
-    
-    Route::get('/mypage', 'App\Http\Controllers\MypageController@mypage')->name('mypage');
-    Route::get('/mypage.form', 'App\Http\Controllers\MypageController@ai')->name('mypage.form');
-    Route::post('/mypage.calculate', 'App\Http\Controllers\MypageController@calculate')->name('calculate');
 
+Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     
+    Route::get('/', 'index')->name('index');
     
-    Route::get('/mypage.calculate', 'App\Http\Controllers\MypageController@calculateWorkingHours')->name('calculateWorkingHours');
-    Route::get('/mypage.calculate', 'App\Http\Controllers\MypageController@some')->name('some.route'); 
-    Route::get('/mypage.calculate', 'App\Http\Controllers\MypageController@a')->name('mypage.record');
- 
     Route::get('/posts.search', 'search')->name('search');
     Route::get('/posts/search', 'App\Http\Controllers\PostController@search')->name('posts.search');
     
@@ -58,6 +45,14 @@ Route::get('/dashboard', function () {
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
+    
+    Route::get('/mypage', 'App\Http\Controllers\MypageController@mypage')->name('mypage');
+    Route::get('/mypage.form', 'App\Http\Controllers\MypageController@form')->name('form');
+    Route::post('/mypage.calculate', 'App\Http\Controllers\MypageController@calculate')->name('calculate');
+    Route::get('/mypage.calculate', 'App\Http\Controllers\MypageController@record')->name('record'); 
+
+ 
+   
 });
 
 

@@ -13,13 +13,9 @@ class MypageController extends Controller
     {
         return view('Mypage.mypage');
     }
-    public function ai()
+    public function form()
     {
         return view('Mypage.calculate');
-    }
-     public function record()
-    {
-        return view('Mypage.record');
     }
     
 public function calculate(Request $request)
@@ -58,22 +54,11 @@ public function calculate(Request $request)
         return view('Mypage.record', compact('totalEarnings', 'records'));
     }
 
-    return redirect()->route('mypage.record');
+    return redirect()->route('record');
 }
-public function some()
+public function record()
 {
     $records = Calculate::all();
     return view('Mypage.record',compact('records'));
 }
-
-
-    
-    public function a()
-{
-
-    $records = Calculate::all();
-
-    return view('Mypage.record', compact('records'));
-}
-
 }
