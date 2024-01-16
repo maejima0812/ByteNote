@@ -16,8 +16,9 @@
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
-<p class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶店舗の追加</p>
+
             @if(auth()->user() && auth()->user()->id == 1)
+            <p class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶店舗の追加</p>
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <div class="max-w-xl">
                         <!-- Display the store addition form here -->
