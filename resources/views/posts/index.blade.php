@@ -5,19 +5,20 @@
         <title>ByteNote</title></title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
-  <body>
-        <h1></h1>
+    <body>
         <x-app-layout>
             
-    <x-slot name="header">
-    </s-slot>
+        <x-slot name="header"></s-slot>
+        
+        <!--店舗検索-->
         <div class="flex justify-center p-4">
-            <form action="{{ route('pick') }}" method="GET">
+            <form action="{{ route('search') }}" method="GET">
                 @csrf
-                <input class="border border-black rounded px-40 py-3   mt-8 mb-4 lg:h-12 xl:h-16" type="text" id="pick" name="keyword" autocomplete="off" placeholder="店舗名を入力してください">
+                <input class="border border-black rounded px-40 py-3   mt-8 mb-4 lg:h-12 xl:h-16" type="text"  name="keyword"  placeholder="店舗名を入力してください">
                 <button class="font-semibold border border-black text-black  px-5 py-3 rounded" type="submit">検索</button>
             </form>
         </div>
+        <!--口コミ閲覧-->
         <div class="border border-black mb-4"></div>
             <h2 class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶口コミを見る</h2>
             <div class="flex justify-center" >
@@ -105,17 +106,16 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
-</div>
-        <div class="text-xl font-bold "> </div>
-       <div class="border border-black mb-4 mt-5"></div>
-        <div class='runk'>
+        
+        <!--口コミランキング-->
+        <div class="text-xl font-bold border border-black mb-4 mt-5"></div>
+        
             @if(isset($topStores))
-            
             <h2 class="text-xl font-bold mb-4 bg-yellow-200 p-2">▶口コミランキング</h2>
 
-<div class="flex justify-center">
-    
+        <div class="flex justify-center">
         <table class="table-auto w-3/5">
             <thead>
                 <tr>
@@ -134,16 +134,15 @@
                 @endforeach
             </tbody>
         </table>
-    @else
-        <p>ランキング情報がありません。</p>
-    @endif
-</div>
+            @else
+                <p>ランキング情報がありません。</p>
+            @endif
+        </div>
 
-<div class="border border-black mb-4 mt-4"></div>
-<a href="{{ route('select') }}" class="font-semibold border border-black text-black px-5 py-3 rounded">口コミを投稿する</a>
-<div class="mt-4"></div>
-
-</div>
-</body>
-</x-app-layout>
+    　　<!--検索ページへ/-->
+        <div class="border border-black mb-4 mt-4"></div>
+        <a href="{{ route('go_search') }}" class="font-semibold border border-black text-black px-5 py-3 rounded">口コミを投稿する</a>
+        <div class="mt-4"></div>
+        </x-app-layout> 
+    </body>
 </html>

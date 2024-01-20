@@ -41,6 +41,9 @@
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
+            <div class="font-semibold border border-black text-black px-5 py-3 rounded max-w-[200px] inline-block mt-5">
+            <a href="/">ホームへ</a>
+        </div>
         </div>
     </div>
     
